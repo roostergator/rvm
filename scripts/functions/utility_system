@@ -73,7 +73,11 @@ __rvm_detect_system()
         [[ -f /etc/redhat-release ]]
       then
         if GREP_OPTIONS="" \grep -E 'CentOS|ClearOS' /etc/redhat-release >/dev/null
-        then _system_name="CentOS"
+        then 
+          _system_name="CentOS"
+        elif GREP_OPTIONS="" \grep -E 'Scientific' /etc/redhat-release >/dev/null
+        then
+          _system_name="Scientific"
         else _system_name="RedHat"
         fi
         _system_version="$(GREP_OPTIONS="" \grep -Eo '[[:digit:]\.]+' /etc/redhat-release  | \awk -F. '{print $1}')"

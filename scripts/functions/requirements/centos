@@ -117,3 +117,8 @@ requirements_redhat_before()
 {
   __lib_type=centos
 }
+
+requirements_scientific_before()
+{
+  __lib_type=centos
+}
